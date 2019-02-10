@@ -18,7 +18,7 @@ class Users :
     def add_user(self, chat_id) :
         if self.base.get(chat_id) is None :
             self.cnt += 1
-            self.base[chat_id] = [{"курс": None, "поток": None, "группа": None}, {"курс": None, "поток": None, "группа": None}, 1, 1] 
+            self.base[chat_id] = [{"course": None, "stream": None, "group": None}, {"course": None, "stream": None, "group": None}, 1, 1] 
             Users.check_cnt(self)
             ##[0] - save; [1] - current
             
