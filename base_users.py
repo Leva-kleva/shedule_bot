@@ -25,9 +25,15 @@ class Users :
     def add_param(self, chat_id, message) :
         Users.add_user(self, chat_id)
         value, param = message.split()
+        if param == "курс" :
+            param = "course"
+        if param == "группа" :
+            param = "group"
+        if param == "поток" :
+            param = "stream"
         self.base[chat_id][1][param] = value
         self.base[chat_id][3] = 0
-        print(chat_id)
+        #print(chat_id)
 
     def get_param(self, chat_id, param) :
         index = self.base[chat_id][2]
@@ -36,7 +42,10 @@ class Users :
     def get_all_params(self, chat_id) :
         params = []
         index = self.base[chat_id][2]
+        #print(index)
+        #print(self.base[chat_id][index])
         for param in self.base[chat_id][index].keys() :
+            #print(param)
             params.append(Users.get_param(self, chat_id, param))
         return params
         
@@ -73,5 +82,11 @@ class Users :
             el = eval(el)
             for lel in el.keys() :
                 self.base[lel] = el[lel]
+        #print(self.base, 2)
         file.close()
 
+##a = Users()
+#####a.add_user("111")
+##a.recovery_base()
+##a.on_flag('260850155')
+##print(a.get_all_params("260850155"))
