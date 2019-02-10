@@ -1,3 +1,5 @@
+﻿# -*- coding: utf-8 -*-
+
 import myparser
 import telebot
 import base_users
