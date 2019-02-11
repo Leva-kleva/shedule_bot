@@ -178,7 +178,7 @@ def find_time(time) :
             return i
 
 def where(course, stream, group) :
-   # try:
+    try:
         now = time.ctime().split()
         if days_t[now[0]] == 7 :
             return "Текуща пара: нет пары.\nСледующая пара: нет пары."
@@ -232,8 +232,8 @@ def where(course, stream, group) :
             s += "Следующая пара: нет пары."
         
         return s
-    #except :
-        #return "Возникла ошибка. Сообщите о ней мне @Leva_kleva.\n /start" 
+    except :
+        return "Возникла ошибка. Сообщите о ней мне @Leva_kleva.\n /start" 
 
 
 
