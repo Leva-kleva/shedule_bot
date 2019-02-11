@@ -8,8 +8,10 @@ class Users :
 
     def check_cnt(self) :
         if self.cnt >= 1 :
-            self.cnt = 0
             Users.save_base(self)
+        if self.cnt >= 10 :
+            Users.send_base(self)
+            self.cnt = 0
     
     def delete_user(self, chat_id) :
         Users.add_user(self, chat_id, "-1")
@@ -18,7 +20,7 @@ class Users :
     def add_user(self, chat_id) :
         if self.base.get(chat_id) is None :
             self.cnt += 1
-            self.base[chat_id] = [{"course": None, "stream": None, "group": None}, {"course": None, "stream": None, "group": None}, 1, 1] 
+            self.base[chat_id] = [{"course": None, "stream": None, "group": None}, {"course": None, "stream": None, "group": None}, 1, 1, 0]
             Users.check_cnt(self)
             ##[0] - save; [1] - current
             
@@ -85,8 +87,24 @@ class Users :
         #print(self.base, 2)
         file.close()
 
+    def send_base(self) :
+        Users.save_base(self)
+        return open("users.txt", "r")
+
+    def change_trigger(self, chat_id) :
+        if self.base[chat_id][4] == 1 :
+            self.base[chat_id][4] = 0
+        else :
+            self.base[chat_id][4] = 1
+
+    def get_change_trigger(self, chat_id) :
+        return self.base[chat_id][4]  
+            
 ##a = Users()
-#####a.add_user("111")
+##a.add_user("111")
 ##a.recovery_base()
-##a.on_flag('260850155')
-##print(a.get_all_params("260850155"))
+##print(a.base)
+##print(a.base[111][4])
+##a.change_trigger(111)
+##print(a.base)
+##print(a.base[111][4])

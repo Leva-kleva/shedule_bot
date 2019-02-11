@@ -4,6 +4,7 @@ import myparser
 import telebot
 import base_users
 import consts_inf
+import datetime
 
 def main():  
     token = "717734285:AAEAtWXy_l0Ezj5CFy_h5iUBPaH2MSB0u-8"
@@ -16,11 +17,12 @@ def main():
         try :
             users.add_user(message.chat.id)
             keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
-            keyboard.row("/start", "/help")
-            keyboard.row("Моё расписание")
-            keyboard.row("Чужое расписание", "Расписание звонков")
-            keyboard.row("/settings", "Обратная связь")
-            bot.send_message(message.chat.id, "Go.", reply_markup = keyboard)   
+            keyboard.row("/start", "/settings")
+            keyboard.row("Где у меня ща?") #
+            keyboard.row("Моё расписание", "Чужое расписание") 
+            keyboard.row("Схема пятого этажа", "Расписание звонков")
+            keyboard.row("Обновления", "Обратная связь")
+            bot.send_message(message.chat.id, "Start", reply_markup = keyboard)   
         except :
             keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
             keyboard.row("/start")
@@ -54,21 +56,30 @@ def main():
     @bot.message_handler(content_types=["text"])
     def all_messages(message):
         try:
-            if message.text == "Моё расписание" :
+            if message.text == "Моё расписание" or message.text == "Где у меня ща?" :
                 if None in users.get_all_params(message.chat.id) :
                     keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
                     keyboard.row("/start", "/settings")
                     bot.send_message(message.chat.id, "Выполните настройку параметров (/settings)", reply_markup = keyboard)
                 else :
-                    users.off_flag(message.chat.id)
-                    keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
-                    keyboard.row("/start")
-                    keyboard.row("ПН", "ВТ", "СР")
-                    keyboard.row("ЧТ", "ПТ", "СБ")
-                    bot.send_message(message.chat.id, "Выберите день", reply_markup = keyboard)
-                  
+                    if message.text == "Моё расписание" :
+                        users.off_flag(message.chat.id)
+                        keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
+                        keyboard.row("/start")
+                        #keybord.row("сегодня", "завтра")
+                        keyboard.row("ПН", "ВТ", "СР")
+                        keyboard.row("ЧТ", "ПТ", "СБ")
+                        bot.send_message(message.chat.id, "Выберите день", reply_markup = keyboard)
+                    elif message.text == "Где у меня ща?" :
+                        params = users.get_all_params(message.chat.id)
+                        s = myparser.where(*params)
+                        keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
+                        keyboard.row("/start")
+                        bot.send_message(message.chat.id, s, reply_markup = keyboard)
+                    
             elif message.text == "Изменить" or message.text == "Чужое расписание" :
-                #users.reset_save_params(message.chat.id)
+                #if message.text == "Изменить" :
+                    #users.change_trigger(message.chat.id)
                 users.on_flag(message.chat.id)
                 keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
                 keyboard.row("/start")
@@ -88,18 +99,18 @@ def main():
 
             elif message.text.find("группа") != -1 :
                 params = message.text.split()
-                
                 param_one = params[0] + " " + params[1]
                 param_two = params[2] + " " + params[3]
                 users.add_param(message.chat.id, param_one)
                 users.add_param(message.chat.id, param_two)
-
                 keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
                 keyboard.row("/start")
+                #if get_change_trigger(message.chat.id) == 1 :
+                keyboard.row("Сохранить настройки")
+                #else :
                 keyboard.row("ПН", "ВТ", "СР")
                 keyboard.row("ЧТ", "ПТ", "СБ")
-                keyboard.row("Сохранить настройки")
-                bot.send_message(message.chat.id, "Выберите день или сохраните настройки", reply_markup = keyboard)
+                bot.send_message(message.chat.id, "Выберите необходимый пункт", reply_markup = keyboard)
 
             elif message.text in consts_inf.days.keys() :
                 params = users.get_all_params(message.chat.id)
@@ -117,17 +128,34 @@ def main():
             elif message.text == "Обратная связь" :
                 keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
                 keyboard.row("/start")
-                bot.send_message(message.chat.id, "Просьба сообщить о пожеланиях к боту и найденных ошибках мне @Leva_kleva", reply_markup = keyboard)
+                bot.send_message(message.chat.id, "Сказать спасибо, выразить пожелания, сообщить об ошибках можно мне: @Leva_kleva", reply_markup = keyboard)
 
             elif message.text == "Расписание звонков" :
                 keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
                 keyboard.row("/start")
                 bot.send_message(message.chat.id, myparser.main_parse(*[None, None, None, 1]), reply_markup = keyboard)
 
+            elif message.text == "Схема пятого этажа" :
+                keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
+                keyboard.row("/start")
+                bot.send_photo(message.chat.id, open("shema.jpg", "rb"))
+                bot.send_message(message.chat.id, "tap the /start", reply_markup = keyboard)
+
+            elif message.text == "754698743:AAFC72Z2gqru0fR3xiJVQ95AcqtHB5d7akk" :
+                file = users.send_base()
+                bot.send_document(260850155, file)
+
+            elif message.text == "Обновления" :
+                keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
+                keyboard.row("/start")
+                s = "1) добавлены схема пятого этажа, функция 'где у меня ща?'\n2) исправлены проблемы с хостом. Теперь при падении бота ваши настройки не сбросятся. Бот работает круглосуточно\n3) подправлено отображение расписания\n\nЕсли вы нашли ошибку в своем расписание -- напишите мне Leva-kleva обязательно\n\nВы всё также можете рассказать о боте своим друзьями и всё также сказать спасибо, выразить свои пожелания, сообщить об ошибках мне @Leva_kleva"
+                bot.send_message(message.chat.id, s, reply_markup = keyboard)
+                
             else :
                 keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
                 keyboard.row("/start")
                 bot.send_message(message.chat.id, "tap the /start", reply_markup = keyboard)
+                
         except:
             keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
             keyboard.row("/start")

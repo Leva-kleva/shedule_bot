@@ -1,1 +1,2 @@
-{260850155: [{'course': '2', 'stream': '3', 'group': '214'}, {'course': '2', 'stream': '3', 'group': '214'}, 1, 0]}
+{260850155: [{'course': '2', 'stream': '3', 'group': '214'}, {'course': '2', 'stream': '1', 'group': '204'}, 1, 0, 0]}
+{411995834: [{'course': '2', 'stream': '2', 'group': '208'}, {'course': '2', 'stream': '2', 'group': '208'}, 1, 0, 0]}
