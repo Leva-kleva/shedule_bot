@@ -177,6 +177,16 @@ def find_time(time) :
         if time < tmp :
             return i
 
+        
+def st(s):
+	a, b = s.split(":")
+	a = int(a)
+	a += 2
+	a = str(a)
+	a = a.zfill(2)
+	return a+":"+b
+
+
 def where(course, stream, group) :
     try:
         now = time.ctime().split()
@@ -184,7 +194,7 @@ def where(course, stream, group) :
             return "Текуща пара: нет пары.\nСледующая пара: нет пары."
         s = ""
         day = days_t[now[0]]
-        curr_time = now[3][:-3]
+        curr_time = st(now[3][:-3])
         s += "time: " + str(curr_time) + "\n"
         #curr_time = "23:59"
         i = find_time(curr_time)
