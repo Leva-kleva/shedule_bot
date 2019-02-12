@@ -161,7 +161,7 @@ def main_parse(course, stream, group, day) :
     s = ""
     for el in parse(get_html(generate_url(course, stream)), group, day) :
         s += el + '\n'
-    print(s)
+    #print(s)
     return s
 
 
@@ -185,6 +185,7 @@ def where(course, stream, group) :
         s = ""
         day = days_t[now[0]]
         curr_time = now[3][:-3]
+        s += "time: " + str(curr_time) + "\n"
         #curr_time = "23:59"
         i = find_time(curr_time)
         for q in range(i-1, i+3, 1) :

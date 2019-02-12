@@ -7,7 +7,7 @@ import consts_inf
 import datetime
 
 def main():  
-    token = "717734285:AAEAtWXy_l0Ezj5CFy_h5iUBPaH2MSB0u-8"
+    token = "754698743:AAFC72Z2gqru0fR3xiJVQ95AcqtHB5d7akk"#"717734285:AAEAtWXy_l0Ezj5CFy_h5iUBPaH2MSB0u-8"
     bot = telebot.TeleBot(token)
     users = base_users.Users()
     users.recovery_base()
@@ -71,6 +71,7 @@ def main():
                         keyboard.row("ЧТ", "ПТ", "СБ")
                         bot.send_message(message.chat.id, "Выберите день", reply_markup = keyboard)
                     elif message.text == "Где у меня ща?" :
+                        users.off_flag(message.chat.id)
                         params = users.get_all_params(message.chat.id)
                         s = myparser.where(*params)
                         keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
