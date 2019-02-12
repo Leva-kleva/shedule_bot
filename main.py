@@ -7,7 +7,7 @@ import consts_inf
 import datetime
 
 def main():  
-    token = "754698743:AAFC72Z2gqru0fR3xiJVQ95AcqtHB5d7akk"#"717734285:AAEAtWXy_l0Ezj5CFy_h5iUBPaH2MSB0u-8"
+    token = "717734285:AAEAtWXy_l0Ezj5CFy_h5iUBPaH2MSB0u-8"
     bot = telebot.TeleBot(token)
     users = base_users.Users()
     users.recovery_base()
