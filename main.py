@@ -18,8 +18,9 @@ def main():
             users.add_user(message.chat.id)
             keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
             keyboard.row("/start", "/settings")
-            keyboard.row("Где у меня ща?") #
-            keyboard.row("Моё расписание", "Чужое расписание") 
+            keyboard.row("Где у меня ща?")
+            keyboard.row("Моё расписание") #
+            keyboard.row("Чужое расписание", "Расписание уч. части") 
             keyboard.row("Схема пятого этажа", "Расписание звонков")
             keyboard.row("Обновления", "Обратная связь")
             bot.send_message(message.chat.id, "Start", reply_markup = keyboard)   
@@ -149,7 +150,13 @@ def main():
             elif message.text == "Обновления" :
                 keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
                 keyboard.row("/start")
-                s = "1) добавлены схема пятого этажа, функция 'где у меня ща?'\n2) исправлены проблемы с хостом. Теперь при падении бота ваши настройки не сбросятся. Бот работает круглосуточно\n3) подправлено отображение расписания\n\nЕсли вы нашли ошибку в своем расписание -- напишите мне Leva-kleva обязательно\n\nВы всё также можете рассказать о боте своим друзьями и всё также сказать спасибо, выразить свои пожелания, сообщить об ошибках мне @Leva_kleva"
+                s = "1) добавлены схема пятого этажа, функция 'где у меня ща?'\n2) исправлены проблемы с хостом. Теперь при падении бота ваши настройки не сбросятся. Бот работает круглосуточно\n3) подправлено отображение расписания\n\nЕсли вы нашли ошибку в своем расписание -- напишите мне @Leva_kleva обязательно\n\nВы всё также можете рассказать о боте своим друзьями и всё также сказать спасибо, выразить свои пожелания, сообщить об ошибках мне @Leva_kleva"
+                bot.send_message(message.chat.id, s, reply_markup = keyboard)
+
+            elif message.text == "Расписание уч. части" :
+                keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
+                keyboard.row("/start")
+                s = "Часы приема учебной части:\n\n08:45-11:00\n12:00-13:15\n14:15-17:00"
                 bot.send_message(message.chat.id, s, reply_markup = keyboard)
                 
             else :
