@@ -16,6 +16,7 @@ def main():
     def command_start(message) :
         try :
             users.add_user(message.chat.id)
+            s = "\nК сожалению, упал сайт с расписанием, поэтому бот частично парализован. Как только сайт восстановят, всё будет работать, а к выходным я поправлю бот, чтобы такого больше не случалось. Извините за неудобства:)"
             keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
             keyboard.row("/start", "/settings")
             keyboard.row("Где у меня ща?")
@@ -23,7 +24,7 @@ def main():
             keyboard.row("Чужое расписание", "Расписание уч. части") 
             keyboard.row("Схема пятого этажа", "Расписание звонков")
             keyboard.row("Обновления", "Обратная связь")
-            bot.send_message(message.chat.id, "Start", reply_markup = keyboard)   
+            bot.send_message(message.chat.id, "Start\n", reply_markup = keyboard)   
         except :
             keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
             keyboard.row("/start")
