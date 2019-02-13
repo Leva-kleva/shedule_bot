@@ -24,7 +24,7 @@ def main():
             keyboard.row("Чужое расписание", "Расписание уч. части") 
             keyboard.row("Схема пятого этажа", "Расписание звонков")
             keyboard.row("Обновления", "Обратная связь")
-            bot.send_message(message.chat.id, "Start\n", reply_markup = keyboard)   
+            bot.send_message(message.chat.id, "Start\n" + s, reply_markup = keyboard)   
         except :
             keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
             keyboard.row("/start")
