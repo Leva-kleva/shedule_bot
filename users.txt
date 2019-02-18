@@ -38,7 +38,7 @@
 {332997265: [{'course': '1', 'stream': '2', 'group': '112'}, {'course': '1', 'stream': '2', 'group': '112'}, 0, 0, 0]}
 {442127384: [{'course': '2', 'stream': '3', 'group': '213'}, {'course': '3', 'stream': '1', 'group': '342'}, 0, 0, 0]}
 {61892875: [{'course': '2', 'stream': '3', 'group': '218'}, {'course': '2', 'stream': '3', 'group': '218'}, 0, 0, 0]}
-{288148081: [{'course': '2', 'stream': '2', 'group': '211'}, {'course': '2', 'stream': '1', 'group': '202'}, 1, 0, 0]}
+{288148081: [{'course': '2', 'stream': '2', 'group': '211'}, {'course': '2', 'stream': '1', 'group': '206'}, 1, 0, 0]}
 {209498621: [{'course': None, 'stream': None, 'group': None}, {'course': '2', 'stream': '3', 'group': '213'}, 0, 0, 0]}
 {560331805: [{'course': '2', 'stream': '3', 'group': '215'}, {'course': '2', 'stream': '3', 'group': '215'}, 0, 0, 0]}
 {410247906: [{'course': None, 'stream': None, 'group': None}, {'course': '1', 'stream': '1', 'group': '104'}, 1, 0, 0]}
@@ -149,7 +149,7 @@
 {217074475: [{'course': '2', 'stream': '3', 'group': '213'}, {'course': '2', 'stream': '3', 'group': '213'}, 0, 0, 0]}
 {81210352: [{'course': '2', 'stream': '2', 'group': '209'}, {'course': '2', 'stream': '2', 'group': '209'}, 0, 0, 0]}
 {443035881: [{'course': None, 'stream': None, 'group': None}, {'course': '2', 'stream': '3', 'group': '214'}, 0, 0, 0]}
-{292260805: [{'course': '3', 'stream': '2', 'group': '325'}, {'course': '4', 'stream': '2', 'group': '425'}, 1, 0, 0]}
+{292260805: [{'course': '3', 'stream': '2', 'group': '325'}, {'course': '4', 'stream': '2', 'group': '425'}, 0, 0, 0]}
 {300098355: [{'course': None, 'stream': None, 'group': None}, {'course': '3', 'stream': '1', 'group': '341'}, 1, 0, 0]}
 {646700189: [{'course': '4', 'stream': '2', 'group': '422'}, {'course': '5', 'stream': '2', 'group': '122М'}, 0, 0, 0]}
 {486530130: [{'course': '3', 'stream': '1', 'group': '302'}, {'course': '3', 'stream': '1', 'group': '302'}, 0, 0, 0]}
@@ -228,7 +228,7 @@
 {49474831: [{'course': None, 'stream': None, 'group': None}, {'course': None, 'stream': None, 'group': None}, 1, 1, 0]}
 {357039508: [{'course': None, 'stream': None, 'group': None}, {'course': None, 'stream': None, 'group': None}, 1, 1, 0]}
 {271088964: [{'course': '3', 'stream': '1', 'group': '314'}, {'course': '3', 'stream': '1', 'group': '314'}, 0, 0, 0]}
-{334687726: [{'course': None, 'stream': None, 'group': None}, {'course': '5', 'stream': '1', 'group': '533'}, 0, 0, 0]}
+{334687726: [{'course': None, 'stream': None, 'group': None}, {'course': '5', 'stream': '1', 'group': '533'}, 1, 0, 0]}
 {218510420: [{'course': None, 'stream': None, 'group': None}, {'course': '4', 'stream': '1', 'group': '407'}, 1, 0, 0]}
 {201515471: [{'course': None, 'stream': None, 'group': None}, {'course': '1', 'stream': '1', 'group': '105'}, 0, 0, 0]}
 {52600732: [{'course': None, 'stream': None, 'group': None}, {'course': None, 'stream': None, 'group': None}, 1, 1, 0]}
@@ -236,3 +236,10 @@
 {254514666: [{'course': '3', 'stream': '1', 'group': '301'}, {'course': '3', 'stream': '1', 'group': '301'}, 0, 0, 0]}
 {146883063: [{'course': '5', 'stream': '2', 'group': '125М'}, {'course': '5', 'stream': '2', 'group': '125М'}, 1, 0, 0]}
 {88955160: [{'course': '4', 'stream': '1', 'group': '406'}, {'course': '4', 'stream': '1', 'group': '406'}, 0, 0, 0]}
+{98540024: [{'course': None, 'stream': None, 'group': None}, {'course': '4', 'stream': '2', 'group': '417'}, 1, 0, 0]}
+{186349717: [{'course': '4', 'stream': '2', 'group': '427'}, {'course': '3', 'stream': '1', 'group': '303'}, 0, 0, 0]}
+{136977707: [{'course': '5', 'stream': '1', 'group': '107М'}, {'course': '5', 'stream': '1', 'group': '107М'}, 0, 0, 0]}
+{216446752: [{'course': None, 'stream': None, 'group': None}, {'course': '3', 'stream': '1', 'group': '303'}, 1, 0, 0]}
+{640029340: [{'course': None, 'stream': None, 'group': None}, {'course': None, 'stream': None, 'group': None}, 1, 1, 0]}
+{340829750: [{'course': '4', 'stream': '2', 'group': '422'}, {'course': '4', 'stream': '2', 'group': '422'}, 0, 0, 0]}
+{101361213: [{'course': '4', 'stream': '2', 'group': '427'}, {'course': '4', 'stream': '2', 'group': '427'}, 0, 0, 0]}

@@ -182,6 +182,8 @@ def st(s):
 	a, b = s.split(":")
 	a = int(a)
 	a += 3
+	if a >= 24 :
+            a -= 24
 	a = str(a)
 	a = a.zfill(2)
 	return a+":"+b
