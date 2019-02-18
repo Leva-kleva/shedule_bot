@@ -149,7 +149,7 @@ def main():
                 bot.send_document(260850155, file)
                 keyboard = telebot.types.ReplyKeyboardMarkup(True, True)
                 keyboard.row("/start")
-                bot.send_photo(message.chat.id, open("ff.jpeg", "rb"))
+                bot.send_photo(message.chat.id, open("ff.jpg", "rb"))
                 bot.send_message(message.chat.id, "на фото физфак.", reply_markup = keyboard)
                 
             elif message.text == "Обновления" :
