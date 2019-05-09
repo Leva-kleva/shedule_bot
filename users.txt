@@ -12,7 +12,7 @@
 {479672503: [{'course': '1', 'stream': '2', 'group': '111'}, {'course': '1', 'stream': '2', 'group': '111'}, 1, 0, 0]}
 {370558684: [{'course': None, 'stream': None, 'group': None}, {'course': '2', 'stream': '3', 'group': '214'}, 1, 0, 0]}
 {629248962: [{'course': None, 'stream': None, 'group': None}, {'course': '1', 'stream': '2', 'group': '110'}, 1, 0, 0]}
-{201293876: [{'course': '1', 'stream': '1', 'group': '102'}, {'course': '2', 'stream': '1', 'group': '202'}, 1, 0, 0]}
+{201293876: [{'course': '1', 'stream': '1', 'group': '102'}, {'course': '2', 'stream': '1', 'group': '202'}, 0, 0, 0]}
 {227086783: [{'course': '2', 'stream': '3', 'group': '213'}, {'course': '2', 'stream': '3', 'group': '213'}, 0, 0, 0]}
 {523614699: [{'course': '1', 'stream': '1', 'group': '105'}, {'course': '1', 'stream': '1', 'group': '105'}, 0, 0, 0]}
 {270791431: [{'course': '2', 'stream': '2', 'group': '212'}, {'course': '2', 'stream': '2', 'group': '212'}, 0, 0, 0]}
@@ -243,3 +243,5 @@
 {640029340: [{'course': None, 'stream': None, 'group': None}, {'course': None, 'stream': None, 'group': None}, 1, 1, 0]}
 {340829750: [{'course': '4', 'stream': '2', 'group': '422'}, {'course': '4', 'stream': '2', 'group': '422'}, 0, 0, 0]}
 {101361213: [{'course': '4', 'stream': '2', 'group': '427'}, {'course': '4', 'stream': '2', 'group': '427'}, 0, 0, 0]}
+{78379935: [{'course': '2', 'stream': '2', 'group': '210'}, {'course': '2', 'stream': '2', 'group': '210'}, 0, 0, 0]}
+{128405827: [{'course': None, 'stream': None, 'group': None}, {'course': '2', 'stream': '2', 'group': '210'}, 1, 0, 0]}
