@@ -55,31 +55,7 @@ def main():
             rqst.add_rqst(message.chat.id, message.text)
             rqst.go()
             
-            '''
-            if message.text in set([const_inf.rqst_id[3], const_inf.rqst_id[4], const_inf.rqst_id[5]]) :
-                if message.text == const_inf.rqst_id[3] :
-                    answer = "" ##здесь расписание + инфа о запросе (группа и пр)
-                    bot.send_message(message.chat.id, answer)
-                    send_main_keyboard(message.chat.id)
-                
-                if message.text == const_inf.rqst_id[4] : 
-                    send_dyas(message.chat.id)
-                
-                if message.text == const_inf.rqst_id[5] :
-                    send_course(message.chat.id)
-                    ##нужно формировать очередь запроса
-            
-            elif message.text == const_inf.rqst_id[6] :
-                bot.send_message(message.chat.id, const_inf.ans_id[6])
-                send_main_keyboard(message.chat.id)
-                
-            elif message.text == const_inf.rqst_id[7] :
-                send photo
-                pass
-                
-            elif message.text == const_inf.rqst_id[8] :
-                bot.send_message(message.chat.id, const_inf.ans_id[8])
-                send_main_keyboard(message.chat.id)'''
+
         while True:
             try:
                 bot.polling(none_stop=True)

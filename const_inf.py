@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-token = "957021326:AAETRQ8sjcP-jIvDDnf9fJwPgVaXikmBSNU"
+token = ""
         
 rqst_id = { 
             1: "\start", 2: "\help",
