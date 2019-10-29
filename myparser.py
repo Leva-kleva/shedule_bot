@@ -1,4 +1,29 @@
-﻿# -*- coding: utf-8 -*-
+'''# -*- coding: utf-8 -*- 
+
+import urllib.request
+from bs4 import BeautifulSoup
+import time
+
+
+class Parser:
+    def __init__(self, course, stream, group, day) :
+        self.course = course
+        self.stream = stream
+        self.group = group
+        self.day = day
+        
+    def generate_url(self) :
+        self.url = "http://ras.phys.msu.ru/table/"
+        self.url += str(self.course) + "/" + str(self.stream) + ".htm"
+        
+    def get_html_code(self) :
+        self.html_code = urllib.request.urlopen(self.url).read()
+        
+    def go_parse(self) :
+        Parser.generate_url(self)
+        Parser.get_html_code(self)'''
+        
+# -*- coding: utf-8 -*-
 
 import urllib.request
 from bs4 import BeautifulSoup
@@ -10,9 +35,9 @@ timing = ["9:00-10:35", "10:50-12:25", "13:30-15:05",
 timing_t = ["00:00", "09:00", "10:35", "10:50", "12:25", "13:30", "15:05",
           "15:20", "16:55", "17:05", "18:40", "99:99", "99:99", "99:99"]
 
-days = {"1": "Monday", "2": "Tuesday", "3": "Wednesday",
-            "4": "Thursday", "5": "Friday", "6": "Saturday",
-            "7": "None"}
+days = {"1": "ПН", "2": "ВТ", "3": "СР",
+            "4": "ЧТ", "5": "ПТ", "6": "СБ",
+            "7": "ВС"}
 
 days_t = { "Mon": 1,
          "Tue": 2,
@@ -104,13 +129,13 @@ def dict_shedule(shedule) :
 def format_shedule(shedule, group, day) :
     dshedule = dict_shedule(shedule)
     fshedule = []
-    fshedule.append("Group is " + str(group)) 
-    fshedule.append("Day is " + days[str(day)] + "\n")
+    fshedule.append("Группа " + str(group)) 
+    fshedule.append("День " + days[str(day)] + "\n")
     for key in timing :
         fshedule.append(key)
         if len(dshedule[key]) == 1 :
             if dshedule[key][0] == "\xa0" :
-                    dshedule[key][0] = "no lessons"
+                    dshedule[key][0] = "нет занятия"
             fshedule.append(dshedule[key][0] + "\n")
         else :
             for i in range(len(dshedule[key])) :
@@ -144,7 +169,7 @@ def format_shedule(shedule, group, day) :
 
        
 def parse_p(html, group, day) :
-    soup = BeautifulSoup(html)
+    soup = BeautifulSoup(html, "html.parser")
     table = soup.find("table")
     nomber_group = search_nomber_group(table.find("tr", class_="tdheader"), group)
     rows = table.find_all("tr")
@@ -251,8 +276,27 @@ def where(course, stream, group) :
 
 
 if __name__ == "__main__" :
-    pass
     #args = list(map(int, input().split()))
-    #args = [2, 3, 214, 2]
+    #args = [3, 1, 307, 1]
     #print(where(2, 3, 214))
-    #main_parse(*args) #args = [course, stream, group, day]
+        import const_inf
+    
+        for cr in range(2,3) :
+            #for st in const_inf.nomber_group[str(cr)].keys() :
+                    st = "1"
+                    gr = "203"
+                #for gr in const_inf.nomber_group[str(cr)][str(st)] :
+                    f = open("shedule-"+str(cr)+"-"+str(st)+"-"+str(gr)+".txt", "w")
+                    #print(main_parse(*args)) #args = [course, stream, group, day]
+                    for i in range(1, 7) :
+                        args = [cr, int(st), gr, i]
+                        print(args)
+                        s = main_parse(*args)
+                        f.write(s)
+                        f.write("----------------------------------\n\n\n")
+                    f.close()
+    
+    
+    
+    
+    
